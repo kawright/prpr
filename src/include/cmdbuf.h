@@ -50,6 +50,6 @@ void init_cmd_buf(CmdBuf *cmd_buf);
 /*
  * Parse a LnBuf and write the parsed values to a CmdBuf. Throws ERR_SYNTAX if the LnBuf is malformed.
  */
-void parse_cmd(CmdBuf *cmd_buf, const LnBuf *ln_buf, ErrSt *err_st);
+void parse_cmd(CmdBuf *cmd_buf, const LnBuf ln_buf, ErrSt *err_st);
 
 #endif
