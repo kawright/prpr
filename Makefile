@@ -9,6 +9,7 @@ SRC_DIR					:=	src
 
 OBJS					:=	${OBJ_DIR}/err.o		\
 							${OBJ_DIR}/lnbuf.o		\
+							${OBJ_DIR}/cmdbuf.o		\
 
 FLAGS					:=	-Isrc/include			\
 							-Wall					\

@@ -9,7 +9,7 @@
 #ifndef __LNBUF_H__
 #define __LNBUF_H__
 
-#define MAX_LN_LEN              127
+#define MAX_LN_LEN              1023
 
 /*
  * Fixed-length buffer used to store a line of user input.
