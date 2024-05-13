@@ -63,6 +63,7 @@ void parse_cmd(CmdBuf *cmd_buf, const LnBuf ln_buf, ErrSt *err_st) {
             continue;
         } 
     }
+    if (arg_curs < 0) arg_curs = 0;
     cmd_buf->arg_ct = arg_curs;
     return;
 }

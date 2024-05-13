@@ -26,7 +26,8 @@ typedef enum __ERR_CODE__ {
     ERR_ARGV            = 2,            // Malformed argument vector.
     ERR_MEM             = 3,            // Out-of-memory.
     ERR_IO              = 4,            // File open/read/write fail.
-    ERR_SYNTAX          = 5             // Command parse error.
+    ERR_SYNTAX          = 5,            // Command parse error.
+    ERR_RANGE           = 6             // Out-of-range data.
 } ErrCode;
 
 
