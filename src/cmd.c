@@ -26,3 +26,12 @@ void cmd_dim(ChMat *ch_mat, uint16_t cols, uint16_t rows, ErrSt *err_st) {
     printf("OK\n");
     return;
 }
+
+void cmd_fill(ChMat *ch_mat, char fill_ch) {
+    for (int y = 0; y < ch_mat->sz_rows; y++) {
+        for (int x = 0; x < ch_mat->sz_cols; x++) {
+            ch_mat->data[y][x] = fill_ch;
+        }
+    }
+    printf("OK\n");
+}

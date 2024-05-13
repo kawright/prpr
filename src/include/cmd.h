@@ -19,4 +19,9 @@ void cmd_quit();
  */
 void cmd_dim(ChMat *ch_mat, uint16_t cols, uint16_t rows, ErrSt *err_st);
 
+/*
+ * Fill the entire usuable space of a ChMat with a single character.
+ */
+void cmd_fill(ChMat *ch_mat, char fill_ch);
+
 #endif

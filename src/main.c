@@ -24,6 +24,8 @@ int main(int argc, char *argv[]) {
     init_cmd_buf(&cmd_buf);
     init_ch_mat(&ch_mat);
 
+    ///// INPUT LOOP /////
+
     while (true) {
         printf("> ");
         fgets(ln_buf, MAX_LN_LEN, stdin);
@@ -32,12 +34,15 @@ int main(int argc, char *argv[]) {
         parse_cmd(&cmd_buf, ln_buf, &err_st);
         if (is_err_thrown(&err_st)) panic(&err_st);
     
+        // quit
         if (strcmp(cmd_buf.cmd, "quit") == 0) {
             if (cmd_buf.arg_ct != 0) {
                 printf("ERR\n");
                 continue;
             }
             cmd_quit();
+
+        // dim cols rows
         } else if (strcmp(cmd_buf.cmd, "dim") == 0) {
             if (cmd_buf.arg_ct != 2) {
                 printf("ERR\n");
@@ -45,6 +50,16 @@ int main(int argc, char *argv[]) {
             }
             cmd_dim(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), &err_st);
             if (is_err_thrown(&err_st)) panic(&err_st);
+        
+        // fill ch
+        } else if (strcmp(cmd_buf.cmd, "fill") == 0) {
+            if ((cmd_buf.arg_ct != 1) || (strlen(cmd_buf.args[0]) != 1)) {
+                printf("ERR\n");
+                continue; 
+            }
+            cmd_fill(&ch_mat, cmd_buf.args[0][0]);
+    
+        // Unknown Command
         } else {
             printf("ERR\n");
         }
