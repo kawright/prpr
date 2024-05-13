@@ -24,4 +24,9 @@ void cmd_dim(ChMat *ch_mat, uint16_t cols, uint16_t rows, ErrSt *err_st);
  */
 void cmd_fill(ChMat *ch_mat, char fill_ch);
 
+/*
+ * Print the character matrix to the screen.
+ */
+void cmd_print(ChMat *ch_mat);
+
 #endif

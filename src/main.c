@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     ///// INPUT LOOP /////
 
     while (true) {
-        printf("> ");
+        printf(">>> ");
         fgets(ln_buf, MAX_LN_LEN, stdin);
         
         init_cmd_buf(&cmd_buf);
@@ -58,7 +58,15 @@ int main(int argc, char *argv[]) {
                 continue; 
             }
             cmd_fill(&ch_mat, cmd_buf.args[0][0]);
-    
+
+        // print   
+        } else if (strcmp(cmd_buf.cmd, "print") == 0) {
+            if (cmd_buf.arg_ct != 0) {
+                printf("ERR\n");
+                continue;
+            }
+            cmd_print(&ch_mat);
+ 
         // Unknown Command
         } else {
             printf("ERR\n");
