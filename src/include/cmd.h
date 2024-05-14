@@ -29,4 +29,9 @@ void cmd_fill(ChMat *ch_mat, char fill_ch);
  */
 void cmd_print(ChMat *ch_mat);
 
+/*
+ * Dump the character matrix to a text file.
+ */
+void cmd_txt(ChMat *ch_mat, char *fname);
+
 #endif

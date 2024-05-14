@@ -66,7 +66,15 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             cmd_print(&ch_mat);
- 
+
+        // txt fname
+        } else if (strcmp(cmd_buf.cmd, "txt") == 0) {
+            if (cmd_buf.arg_ct != 1) {
+                printf("ERR\n");
+                continue;
+            }
+            cmd_txt(&ch_mat, cmd_buf.args[0]);
+        
         // Unknown Command
         } else {
             printf("ERR\n");

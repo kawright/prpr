@@ -47,3 +47,20 @@ void cmd_print(ChMat *ch_mat) {
     }
     printf("OK\n");
 }
+
+void cmd_txt(ChMat *ch_mat, char *fname) {
+    FILE *fp = fopen(fname, "w");
+    if (fp == NULL) {
+        printf("ERR\n");
+        return;
+    }
+    for (int y = 0; y < ch_mat->sz_rows; y++) {
+        for (int x = 0; x < ch_mat->sz_cols; x++) {
+            putc(ch_mat->data[y][x], fp);
+        }
+        putc('\n', fp);
+    }
+    fclose(fp);
+    printf("OK\n");
+    
+}
