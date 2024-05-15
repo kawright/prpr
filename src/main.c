@@ -8,11 +8,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <SDL2/SDL.h>
+
 #include "chmat.h"
 #include "cmd.h"
 #include "cmdbuf.h"
 #include "err.h"
 #include "lnbuf.h"
+#include "graphic.h"
 
 int main(int argc, char *argv[]) {
     ErrSt   err_st;
@@ -74,7 +77,21 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             cmd_txt(&ch_mat, cmd_buf.args[0]);
-        
+
+        // initgraph
+        } else if (strcmp(cmd_buf.cmd, "initgraph") == 0) {
+            if (cmd_buf.arg_ct != 0) {
+                printf("ERR\n");
+                continue;
+            }
+            init_graphics();
+            if (is_err_thrown(&err_st)) {
+                printf("ERR\n");
+                init_err_st(&err_st);
+            } else {
+                printf("OK\n");
+            }
+ 
         // Unknown Command
         } else {
             printf("ERR\n");

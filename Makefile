@@ -11,7 +11,10 @@ OBJS					:=	${OBJ_DIR}/err.o		\
 							${OBJ_DIR}/lnbuf.o		\
 							${OBJ_DIR}/cmdbuf.o		\
 							${OBJ_DIR}/cmd.o		\
-							${OBJ_DIR}/chmat.o
+							${OBJ_DIR}/chmat.o		\
+							${OBJ_DIR}/graphic.o	\
+
+LIBS					:=	-lSDL2
 
 FLAGS					:=	-Isrc/include			\
 							-Wall					\
@@ -22,13 +25,13 @@ ${BIN_DIR}/prpr: ${SRC_DIR}/main.c ${OBJS}
 	@echo 'Building binary $@'
 	@mkdir -p ${BUILD_DIR}
 	@mkdir -p ${BIN_DIR}
-	@gcc ${FLAGS} ${OBJS} ${SRC_DIR}/main.c -o $@
+	@gcc ${FLAGS} ${OBJS} ${SRC_DIR}/main.c ${LIBS} -o $@
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
 	@echo 'Building object file $@'
 	@mkdir -p ${BUILD_DIR}
 	@mkdir -p ${OBJ_DIR}
-	@gcc ${FLAGS} -c $< -o $@
+	@gcc ${FLAGS} -c $< ${LIBS} -o $@
 
 .PHONY: all
 all: ${BIN_DIR}/prpr

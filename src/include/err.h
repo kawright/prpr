@@ -27,7 +27,8 @@ typedef enum __ERR_CODE__ {
     ERR_MEM             = 3,            // Out-of-memory.
     ERR_IO              = 4,            // File open/read/write fail.
     ERR_SYNTAX          = 5,            // Command parse error.
-    ERR_RANGE           = 6             // Out-of-range data.
+    ERR_RANGE           = 6,            // Out-of-range data.
+    ERR_EXTERN          = 7             // Error reported by external sub-system.
 } ErrCode;
 
 
