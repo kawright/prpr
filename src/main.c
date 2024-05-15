@@ -91,7 +91,15 @@ int main(int argc, char *argv[]) {
             } else {
                 printf("OK\n");
             }
- 
+
+        // quitgraph
+        } else if (strcmp(cmd_buf.cmd, "quitgraph") == 0) {
+            if (cmd_buf.arg_ct != 0) {
+                printf("ERR\n");
+                continue;
+            }
+            cmd_quitgraph(); 
+
         // Unknown Command
         } else {
             printf("ERR\n");

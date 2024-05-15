@@ -10,6 +10,7 @@
 #include "cmd.h"
 #include "chmat.h"
 #include "err.h"
+#include "graphic.h"
 
 void cmd_quit() {
     exit(0);
@@ -63,4 +64,9 @@ void cmd_txt(ChMat *ch_mat, char *fname) {
     fclose(fp);
     printf("OK\n");
     
+}
+
+void cmd_quitgraph() {
+    quit_graphics();
+    printf("OK\n");    
 }

@@ -34,4 +34,9 @@ void cmd_print(ChMat *ch_mat);
  */
 void cmd_txt(ChMat *ch_mat, char *fname);
 
+/*
+ * Quit the graphics sub-system.
+ */
+void cmd_quitgraph();
+
 #endif
