@@ -10,6 +10,7 @@
 
 #include <SDL2/SDL.h>
 
+#include "asset.h"
 #include "chmat.h"
 #include "cmd.h"
 #include "cmdbuf.h"
@@ -18,14 +19,17 @@
 #include "graphic.h"
 
 int main(int argc, char *argv[]) {
-    ErrSt   err_st;
-    LnBuf   ln_buf;
-    CmdBuf  cmd_buf;
-    ChMat   ch_mat;
+    ErrSt       err_st;
+    LnBuf       ln_buf;
+    CmdBuf      cmd_buf;
+    ChMat       ch_mat;
+    GraphSt     graph_st;
     init_err_st(&err_st);
     init_ln_buf(ln_buf);
     init_cmd_buf(&cmd_buf);
     init_ch_mat(&ch_mat);
+    init_graph_st(&graph_st);
+    init_assets();
 
     ///// INPUT LOOP /////
 
@@ -84,7 +88,7 @@ int main(int argc, char *argv[]) {
                 printf("ERR\n");
                 continue;
             }
-            init_graphics();
+            INIT_GRAPHICS();
             if (is_err_thrown(&err_st)) {
                 printf("ERR\n");
                 init_err_st(&err_st);

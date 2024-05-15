@@ -6,15 +6,23 @@ BUILD_DIR				:=	.build
 OBJ_DIR					:=	${BUILD_DIR}/obj
 BIN_DIR					:=	${BUILD_DIR}/bin
 SRC_DIR					:=	src
+ASSET_DIR				:=	asset
 
-OBJS					:=	${OBJ_DIR}/err.o		\
-							${OBJ_DIR}/lnbuf.o		\
-							${OBJ_DIR}/cmdbuf.o		\
-							${OBJ_DIR}/cmd.o		\
-							${OBJ_DIR}/chmat.o		\
-							${OBJ_DIR}/graphic.o	\
+OBJS					:=	${OBJ_DIR}/err.o						\
+							${OBJ_DIR}/lnbuf.o						\
+							${OBJ_DIR}/cmdbuf.o						\
+							${OBJ_DIR}/cmd.o						\
+							${OBJ_DIR}/chmat.o						\
+							${OBJ_DIR}/graphic.o					\
+							${OBJ_DIR}/asset.o						\
+							${OBJ_DIR}/ati_9x14.ttf.o				\
+							${OBJ_DIR}/ibm_iso8.ttf.o				\
+							${OBJ_DIR}/help.txt.o					\
+							${OBJ_DIR}/version.txt.o				\
 
-LIBS					:=	-lSDL2
+LIBS					:=	-lSDL2					\
+							-lSDL2_image			\
+							-lSDL2_ttf
 
 FLAGS					:=	-Isrc/include			\
 							-Wall					\
@@ -32,6 +40,10 @@ ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
 	@mkdir -p ${BUILD_DIR}
 	@mkdir -p ${OBJ_DIR}
 	@gcc ${FLAGS} -c $< ${LIBS} -o $@
+
+$(OBJ_DIR)/%.o: $(ASSET_DIR)/%
+	@echo 'Linking asset $@'
+	@ld -r -b binary -o $@ $<
 
 .PHONY: all
 all: ${BIN_DIR}/prpr
