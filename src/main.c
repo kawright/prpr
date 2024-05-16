@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     init_ch_mat(&ch_mat);
     init_graph_st(&graph_st);
     init_assets();
-
+    
     ///// INPUT LOOP /////
 
     while (true) {
@@ -93,9 +93,15 @@ int main(int argc, char *argv[]) {
             if (is_err_thrown(&err_st)) {
                 fdback_err();
                 init_err_st(&err_st);
-            } else {
-                fdback_ok();
+                continue;
             }
+            ld_fnt(&graph_st, FNT_ATI, 12, &err_st);
+            if (is_err_thrown(&err_st)) {
+                fdback_err();
+                init_err_st(&err_st);
+                continue;
+            }
+            fdback_ok(); 
 
         // quitgraph
         } else if (strcmp(cmd_buf.cmd, "quitgraph") == 0) {
@@ -103,7 +109,7 @@ int main(int argc, char *argv[]) {
                 fdback_err();
                 continue;
             }
-            cmd_quitgraph(); 
+            cmd_quitgraph(&graph_st); 
     
         // fdback [on|off]
         } else if (strcmp(cmd_buf.cmd, "fdback") == 0) {

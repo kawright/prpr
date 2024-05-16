@@ -67,8 +67,8 @@ void cmd_txt(ChMat *ch_mat, char *fname) {
     
 }
 
-void cmd_quitgraph() {
-    quit_graphics();
+void cmd_quitgraph(GraphSt *graph_st) {
+    quit_graphics(graph_st);
     fdback_ok();
 }
 

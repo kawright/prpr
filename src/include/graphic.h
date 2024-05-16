@@ -26,19 +26,28 @@
  * Struct type which stores the state related to graphics rendering.
  */
 typedef struct __GRAPH_ST__ {
-    uint8_t         bg_r;
+    uint8_t         bg_r;               // Background color...
     uint8_t         bg_g;
     uint8_t         bg_b;
-    uint8_t         fg_r;
+    uint8_t         fg_r;               // Foreground color...
     uint8_t         fg_g;
     uint8_t         fg_b;
-    uint16_t        margin_t;
+    uint16_t        margin_t;           // Margins...
     uint16_t        margin_b;
     uint16_t        margin_l;
     uint16_t        margin_r;
-    SDL_Surface     *draw_surf;
-    TTF_Font        *fnt;
+    uint16_t        ln_sp;              // Line space
+    SDL_Surface     *draw_surf;         // SDL surface
+    TTF_Font        *raw_fnt;           // SDL TTF font
 } GraphSt;
+
+/*
+ * Enum type listing all supported fonts.
+ */
+typedef enum __FNT__ {
+    FNT_ATI,
+    FNT_IBM
+} Fnt;
 
 /*
  * Initialize a GraphSt.
@@ -46,8 +55,13 @@ typedef struct __GRAPH_ST__ {
 void init_graph_st(GraphSt *graph_st);
 
 /*
+ * Load a font with a given pt size.
+ */
+void ld_fnt(GraphSt *graph_st, Fnt fnt, uint16_t pt, ErrSt *err_st);
+
+/*
  * Quit the SDL graphics subsystem.
  */
-void quit_graphics();
+void quit_graphics(GraphSt *graph_st);
 
 #endif

@@ -8,6 +8,7 @@
 #define __CMD_H__
 
 #include "chmat.h"
+#include "graphic.h"
 
 /*
  * Exit the program.
@@ -37,7 +38,7 @@ void cmd_txt(ChMat *ch_mat, char *fname);
 /*
  * Quit the graphics sub-system.
  */
-void cmd_quitgraph();
+void cmd_quitgraph(GraphSt *graph_st);
 
 /*
  * Enable/disable command feedback.
