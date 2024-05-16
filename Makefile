@@ -15,6 +15,7 @@ OBJS					:=	${OBJ_DIR}/err.o						\
 							${OBJ_DIR}/chmat.o						\
 							${OBJ_DIR}/graphic.o					\
 							${OBJ_DIR}/asset.o						\
+							${OBJ_DIR}/fdback.o						\
 							${OBJ_DIR}/ati_9x14.ttf.o				\
 							${OBJ_DIR}/ibm_iso8.ttf.o				\
 							${OBJ_DIR}/help.txt.o					\

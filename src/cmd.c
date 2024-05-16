@@ -11,6 +11,7 @@
 #include "chmat.h"
 #include "err.h"
 #include "graphic.h"
+#include "fdback.h"
 
 void cmd_quit() {
     exit(0);
@@ -19,14 +20,14 @@ void cmd_quit() {
 void cmd_dim(ChMat *ch_mat, uint16_t cols, uint16_t rows, ErrSt *err_st) {
     dim_ch_mat(ch_mat, cols, rows, err_st);
     if (err_st->code == ERR_RANGE) {
-        printf("ERR\n");
+        fdback_err();
         init_err_st(err_st);
         return;
     }
     if (is_err_thrown(err_st)) return;
     ch_mat->sz_cols = cols;
     ch_mat->sz_rows = rows;
-    printf("OK\n");
+    fdback_ok();
     return;
 }
 
@@ -36,7 +37,7 @@ void cmd_fill(ChMat *ch_mat, char fill_ch) {
             ch_mat->data[y][x] = fill_ch;
         }
     }
-    printf("OK\n");
+    fdback_ok();
 }
 
 void cmd_print(ChMat *ch_mat) {
@@ -46,13 +47,13 @@ void cmd_print(ChMat *ch_mat) {
         }
         putc('\n', stdout);
     }
-    printf("OK\n");
+    fdback_ok();
 }
 
 void cmd_txt(ChMat *ch_mat, char *fname) {
     FILE *fp = fopen(fname, "w");
     if (fp == NULL) {
-        printf("ERR\n");
+        fdback_err();
         return;
     }
     for (int y = 0; y < ch_mat->sz_rows; y++) {
@@ -62,11 +63,17 @@ void cmd_txt(ChMat *ch_mat, char *fname) {
         putc('\n', fp);
     }
     fclose(fp);
-    printf("OK\n");
+    fdback_ok();
     
 }
 
 void cmd_quitgraph() {
     quit_graphics();
-    printf("OK\n");    
+    fdback_ok();
+}
+
+
+void cmd_fdback(bool val) {
+    fdback_set(val);
+    fdback_ok();
 }

@@ -17,6 +17,7 @@
 #include "err.h"
 #include "lnbuf.h"
 #include "graphic.h"
+#include "fdback.h"
 
 int main(int argc, char *argv[]) {
     ErrSt       err_st;
@@ -44,7 +45,7 @@ int main(int argc, char *argv[]) {
         // quit
         if (strcmp(cmd_buf.cmd, "quit") == 0) {
             if (cmd_buf.arg_ct != 0) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             cmd_quit();
@@ -52,7 +53,7 @@ int main(int argc, char *argv[]) {
         // dim cols rows
         } else if (strcmp(cmd_buf.cmd, "dim") == 0) {
             if (cmd_buf.arg_ct != 2) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             cmd_dim(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), &err_st);
@@ -61,7 +62,7 @@ int main(int argc, char *argv[]) {
         // fill ch
         } else if (strcmp(cmd_buf.cmd, "fill") == 0) {
             if ((cmd_buf.arg_ct != 1) || (strlen(cmd_buf.args[0]) != 1)) {
-                printf("ERR\n");
+                fdback_err();
                 continue; 
             }
             cmd_fill(&ch_mat, cmd_buf.args[0][0]);
@@ -69,7 +70,7 @@ int main(int argc, char *argv[]) {
         // print   
         } else if (strcmp(cmd_buf.cmd, "print") == 0) {
             if (cmd_buf.arg_ct != 0) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             cmd_print(&ch_mat);
@@ -77,7 +78,7 @@ int main(int argc, char *argv[]) {
         // txt fname
         } else if (strcmp(cmd_buf.cmd, "txt") == 0) {
             if (cmd_buf.arg_ct != 1) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             cmd_txt(&ch_mat, cmd_buf.args[0]);
@@ -85,28 +86,42 @@ int main(int argc, char *argv[]) {
         // initgraph
         } else if (strcmp(cmd_buf.cmd, "initgraph") == 0) {
             if (cmd_buf.arg_ct != 0) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             INIT_GRAPHICS();
             if (is_err_thrown(&err_st)) {
-                printf("ERR\n");
+                fdback_err();
                 init_err_st(&err_st);
             } else {
-                printf("OK\n");
+                fdback_ok();
             }
 
         // quitgraph
         } else if (strcmp(cmd_buf.cmd, "quitgraph") == 0) {
             if (cmd_buf.arg_ct != 0) {
-                printf("ERR\n");
+                fdback_err();
                 continue;
             }
             cmd_quitgraph(); 
+    
+        // fdback [on|off]
+        } else if (strcmp(cmd_buf.cmd, "fdback") == 0) {
+            if (cmd_buf.arg_ct != 1) {
+                fdback_err();
+                continue;
+            }
+            if (strcmp(cmd_buf.args[0], "on") == 0) {
+                cmd_fdback(true);
+            } else if (strcmp(cmd_buf.args[0], "off") == 0) {
+                cmd_fdback(false);
+            } else {
+                fdback_err();
+            }
 
         // Unknown Command
         } else {
-            printf("ERR\n");
+            fdback_err();
         }
     }
     

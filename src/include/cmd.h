@@ -39,4 +39,9 @@ void cmd_txt(ChMat *ch_mat, char *fname);
  */
 void cmd_quitgraph();
 
+/*
+ * Enable/disable command feedback.
+ */
+void cmd_fdback(bool val);
+
 #endif
