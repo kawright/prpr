@@ -125,6 +125,28 @@ int main(int argc, char *argv[]) {
                 fdback_err();
             }
 
+        } else if (strcmp(cmd_buf.cmd, "pngdraw") == 0) {
+            if (cmd_buf.arg_ct != 0) {
+                fdback_err();
+                continue;
+            }
+            cmd_pngdraw(&graph_st, &ch_mat, &err_st);
+            if (is_err_thrown(&err_st)) {
+                fdback_err();
+                continue;
+            }
+
+        } else if (strcmp(cmd_buf.cmd, "pngsv") == 0) {
+            if (cmd_buf.arg_ct != 1) {
+                fdback_err();
+                continue;
+            }
+            cmd_pngsv(&graph_st, cmd_buf.args[0], &err_st);
+            if (is_err_thrown(&err_st)) {
+                fdback_err();
+                continue;
+            }
+
         // Unknown Command
         } else {
             fdback_err();

@@ -45,4 +45,14 @@ void cmd_quitgraph(GraphSt *graph_st);
  */
 void cmd_fdback(bool val);
 
+/*
+ * Draw the character matrix to the graphics buffer.
+ */
+void cmd_pngdraw(GraphSt *graph_st, ChMat *ch_mat, ErrSt *err_st);
+
+/*
+ * Save the graphics buffer as a png file.
+ */
+void cmd_pngsv(GraphSt *graph_st, char *fname, ErrSt *err_st); 
+
 #endif

@@ -77,3 +77,24 @@ void cmd_fdback(bool val) {
     fdback_set(val);
     fdback_ok();
 }
+
+void cmd_pngdraw(GraphSt *graph_st, ChMat *ch_mat, ErrSt *err_st) {
+    draw_ch_mat(graph_st, ch_mat, err_st);
+    if (is_err_thrown(err_st)) {
+        fdback_err();
+        init_err_st(err_st);
+        return;
+    }
+    fdback_ok();
+}
+
+
+void cmd_pngsv(GraphSt *graph_st, char *fname, ErrSt *err_st) {
+    sv_png(graph_st, fname, err_st);
+    if (is_err_thrown(err_st)) {
+        fdback_err();
+        init_err_st(err_st);
+        return;
+    }
+    fdback_ok();
+}
