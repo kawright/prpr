@@ -98,3 +98,18 @@ void cmd_pngsv(GraphSt *graph_st, char *fname, ErrSt *err_st) {
     }
     fdback_ok();
 }
+
+void cmd_putl(ChMat *ch_mat, uint16_t x, uint16_t y, char *str) {
+    if (y >= ch_mat->sz_rows) {
+        fdback_err();
+        return;
+    }
+    for (int i = 0; i < strlen(str); i++) {
+        if (x + i >= ch_mat->sz_cols) {
+            fdback_err();
+            return;
+        }
+        ch_mat->data[y][x + i] = str[i];
+    }
+    fdback_ok();
+}

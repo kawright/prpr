@@ -19,7 +19,7 @@ void init_graph_st(GraphSt *graph_st) {
     graph_st->bg_b          = 0xff;
     graph_st->fg_r          = 0x00;
     graph_st->fg_g          = 0x00;
-    graph_st->fg_g          = 0x00;
+    graph_st->fg_b          = 0x00;
     graph_st->margin_t      = 8;
     graph_st->margin_b      = 8;
     graph_st->margin_l      = 8;

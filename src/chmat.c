@@ -11,7 +11,7 @@ void init_ch_mat(ChMat *ch_mat) {
     ch_mat->sz_rows = 0;
     for (int y = 0; y < MAX_CH_MAT_ROWS; y++) {
         for (int x = 0; x < MAX_CH_MAT_COLS; x++) {
-            ch_mat->data[y][x] = 0;
+            ch_mat->data[y][x] = ' ';
         }
     }
 }

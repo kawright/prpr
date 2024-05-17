@@ -55,4 +55,9 @@ void cmd_pngdraw(GraphSt *graph_st, ChMat *ch_mat, ErrSt *err_st);
  */
 void cmd_pngsv(GraphSt *graph_st, char *fname, ErrSt *err_st); 
 
+/*
+ * Put a left-aligned string onto a ChMat. Throws ERR_RANGE if the string goes out-of-bounds.
+ */
+void cmd_putl(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
+
 #endif

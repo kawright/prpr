@@ -146,6 +146,12 @@ int main(int argc, char *argv[]) {
                 fdback_err();
                 continue;
             }
+        } else if (strcmp(cmd_buf.cmd, "putl") == 0) {
+            if (cmd_buf.arg_ct != 3) {
+                fdback_err();
+                continue;
+            }
+            cmd_putl(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2]);
 
         // Unknown Command
         } else {
