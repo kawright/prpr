@@ -40,9 +40,29 @@ int main(int argc, char *argv[]) {
     
     ///// INPUT LOOP /////
 
+    FILE *fp;
+    bool batch_mode         = false;
+    if (prog_opts.fname) {
+        batch_mode = true;
+        fp = fopen(prog_opts.fname, "r");
+        if (fp == NULL) {
+            throw(&err_st, ERR_ARGV, "Could not open file %s", prog_opts.fname);
+            panic(&err_st);
+        }
+    }
     while (true) {
-        printf(">>> ");
-        fgets(ln_buf, MAX_LN_LEN, stdin);
+        
+        if (batch_mode) {
+            if (!(fgets(ln_buf, MAX_LN_LEN, fp))) {
+                batch_mode = false;
+                fclose(fp);
+                printf(">>> ");
+                fgets(ln_buf, MAX_LN_LEN, stdin);
+            };
+        } else {
+            printf(">>> ");
+            fgets(ln_buf, MAX_LN_LEN, stdin);
+        }
         
         init_cmd_buf(&cmd_buf);
         parse_cmd(&cmd_buf, ln_buf, &err_st);
@@ -131,6 +151,7 @@ int main(int argc, char *argv[]) {
                 fdback_err();
             }
 
+        // pngdraw
         } else if (strcmp(cmd_buf.cmd, "pngdraw") == 0) {
             if (cmd_buf.arg_ct != 0) {
                 fdback_err();
@@ -142,6 +163,7 @@ int main(int argc, char *argv[]) {
                 continue;
             }
 
+        // pngsv fname
         } else if (strcmp(cmd_buf.cmd, "pngsv") == 0) {
             if (cmd_buf.arg_ct != 1) {
                 fdback_err();
@@ -152,12 +174,22 @@ int main(int argc, char *argv[]) {
                 fdback_err();
                 continue;
             }
+
+        // putl x y str
         } else if (strcmp(cmd_buf.cmd, "putl") == 0) {
             if (cmd_buf.arg_ct != 3) {
                 fdback_err();
                 continue;
             }
             cmd_putl(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2]);
+
+        // # [comment]
+        } else if (strcmp(cmd_buf.cmd, "#") == 0) {
+            continue;
+
+        // Blank line
+        } else if (strcmp(cmd_buf.cmd, "") == 0) {
+            continue;
 
         // Unknown Command
         } else {
