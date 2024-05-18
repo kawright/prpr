@@ -183,8 +183,8 @@ int main(int argc, char *argv[]) {
             }
             cmd_putl(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2]);
 
-        // # [comment]
-        } else if (strcmp(cmd_buf.cmd, "#") == 0) {
+        // -- [comment]
+        } else if (strcmp(cmd_buf.cmd, "--") == 0) {
             continue;
 
         // Blank line
