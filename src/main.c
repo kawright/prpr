@@ -183,6 +183,7 @@ int main(int argc, char *argv[]) {
             }
             cmd_putl(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2]);
 
+        // putr x y str
         } else if (strcmp(cmd_buf.cmd, "putr") == 0) {
             if (cmd_buf.arg_ct != 3) {
                 fdback_err();
@@ -190,6 +191,14 @@ int main(int argc, char *argv[]) {
             }
             cmd_putr(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2]);
 
+        // putc ln str
+        } else if (strcmp(cmd_buf.cmd, "putc") == 0) {
+            if (cmd_buf.arg_ct != 2) {
+                fdback_err();
+                continue;
+            }
+            cmd_putc(&ch_mat, atoi(cmd_buf.args[0]), cmd_buf.args[1]);
+        
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {
             continue;

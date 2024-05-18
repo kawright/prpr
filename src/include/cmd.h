@@ -65,4 +65,9 @@ void cmd_putl(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
  */
 void cmd_putr(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
 
+/*
+ * Put a centered string onto a ChMat. Throws ERR_RANGE if the string goes out-of-bounds.
+ */
+void cmd_putc(ChMat *ch_mat, uint16_t ln, char *str);
+
 #endif
