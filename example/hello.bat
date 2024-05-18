@@ -1,19 +1,19 @@
-# Copyright (C) 2024  Kristoffer A. Wright
+-- Copyright (C) 2024  Kristoffer A. Wright
 
-# hello.ppb - Hello world example
+-- hello.ppb - Hello world example
 
-# Setup
+-- Setup
 fdback          off
 initgraph
 dim             120 40
 
-# Drawing
+-- Drawing
 putl            55 20 "Hello, world!"
 
-# Export to PNG
+-- Export to PNG
 pngdraw
 pngsv           "example.png"
 
-# Teardown
+-- Teardown
 quitgraph
 quit
