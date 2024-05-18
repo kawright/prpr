@@ -18,6 +18,7 @@
 #include "lnbuf.h"
 #include "graphic.h"
 #include "fdback.h"
+#include "argvp.h"
 
 int main(int argc, char *argv[]) {
     ErrSt       err_st;
@@ -25,12 +26,17 @@ int main(int argc, char *argv[]) {
     CmdBuf      cmd_buf;
     ChMat       ch_mat;
     GraphSt     graph_st;
+    ProgOpts    prog_opts;
     init_err_st(&err_st);
     init_ln_buf(ln_buf);
     init_cmd_buf(&cmd_buf);
     init_ch_mat(&ch_mat);
     init_graph_st(&graph_st);
+    init_prog_opts(&prog_opts);
     init_assets();
+
+    parse_prog_opts(&prog_opts, argc, argv, &err_st);
+    if (is_err_thrown(&err_st)) panic(&err_st);
     
     ///// INPUT LOOP /////
 

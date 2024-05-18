@@ -10,6 +10,7 @@
 #include <stdarg.h>
 #include <stdbool.h>
 
+#include "err.h"
 
 /*
  * The size of the buffer for error messages (minus one for the null terminator).
