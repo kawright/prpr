@@ -5,10 +5,11 @@
 -- Setup
 fdback          off
 initgraph
-dim             120 40
+dim             20 5
 
 -- Drawing
-putl            55 20 "Hello, world!"
+putl            3 2 Hello
+putr            17 2 World
 
 -- Export to PNG
 pngdraw

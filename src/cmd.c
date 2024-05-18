@@ -113,3 +113,23 @@ void cmd_putl(ChMat *ch_mat, uint16_t x, uint16_t y, char *str) {
     }
     fdback_ok();
 }
+
+void cmd_putr(ChMat *ch_mat, uint16_t x, uint16_t y, char *str) {
+    if (y >= ch_mat->sz_rows) {
+        fdback_err();
+        return;
+    }
+    for (int i = strlen(str) - 1; i >= 0; i--) {
+        
+        if (x + i - strlen(str) >= ch_mat->sz_cols) {
+            fdback_err();
+            return;
+        }
+        if (x + i - strlen(str) < 0) {
+            fdback_err();
+            return;
+        }
+        ch_mat->data[y][x + i - strlen(str)] = str[i];
+    }
+    fdback_ok();
+}
