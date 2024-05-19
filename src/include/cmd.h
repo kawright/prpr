@@ -70,4 +70,9 @@ void cmd_putr(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
  */
 void cmd_putc(ChMat *ch_mat, uint16_t ln, char *str);
 
+/*
+ * Create a horizontal rule.
+ */
+void cmd_hrule(ChMat *ch_mat, uint16_t ln, char *ch);
+
 #endif

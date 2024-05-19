@@ -8,7 +8,9 @@ initgraph
 dim             40 5
 
 -- Drawing
+hrule           1 -
 putc            2 "Hello, world!"
+hrule           3 +
 
 -- Export to PNG
 pngdraw

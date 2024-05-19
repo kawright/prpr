@@ -145,3 +145,13 @@ void cmd_putc(ChMat *ch_mat, uint16_t ln, char *str) {
     fdback_ok();
 }
 
+void cmd_hrule(ChMat *ch_mat, uint16_t ln, char *ch) {
+    if (ln >= ch_mat->sz_rows) {
+        fdback_err();
+        return;
+    }
+    for (int i = 0; i < ch_mat->sz_cols; i++) {
+        ch_mat->data[ln][i] = ch[0];
+    }
+    fdback_ok();
+}

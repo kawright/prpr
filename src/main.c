@@ -198,7 +198,18 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             cmd_putc(&ch_mat, atoi(cmd_buf.args[0]), cmd_buf.args[1]);
-        
+    
+        } else if (strcmp(cmd_buf.cmd, "hrule") == 0) {
+            if (cmd_buf.arg_ct != 2) {
+                fdback_err();
+                continue;
+            }
+            if (strlen(cmd_buf.args[1]) != 1) {
+                fdback_err();
+                continue;
+            }
+            cmd_hrule(&ch_mat, atoi(cmd_buf.args[0]), cmd_buf.args[1]);
+    
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {
             continue;
