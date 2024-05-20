@@ -16,7 +16,7 @@ void fdback_ok() {
 }
 
 void fdback_err() {
-    if (_enabled) printf("ERR\n");
+    printf("ERR\n");
 }
 
 void fdback_set(bool val) {

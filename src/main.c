@@ -211,7 +211,7 @@ int main(int argc, char *argv[]) {
             }
             cmd_hrule(&ch_mat, atoi(cmd_buf.args[0]), cmd_buf.args[1]);
    
-        // fbox uplx uply botlx botry ch
+        // fbox uplx uply botrx botry ch
         } else if (strcmp(cmd_buf.cmd, "fbox") == 0) {
             if (cmd_buf.arg_ct != 5) {
                 fdback_err();
@@ -223,6 +223,30 @@ int main(int argc, char *argv[]) {
             }
             cmd_fbox(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), atoi(cmd_buf.args[2]), 
                 atoi(cmd_buf.args[3]), cmd_buf.args[4]);
+
+        // box uplx uply botrx botry horiz [vert] [crnr]
+        } else if (strcmp(cmd_buf.cmd, "box") == 0) {
+            if (cmd_buf.arg_ct == 5) {
+                if (strlen(cmd_buf.args[4]) != 1) {
+                    fdback_err();
+                    continue;
+                }
+                cmd_box(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), atoi(cmd_buf.args[2]),
+                    atoi(cmd_buf.args[3]), cmd_buf.args[4], cmd_buf.args[4], cmd_buf.args[4]);
+            } else if (cmd_buf.arg_ct == 7) {
+                if (
+                        (strlen(cmd_buf.args[4]) != 1) ||
+                        (strlen(cmd_buf.args[5]) != 1) ||
+                        (strlen(cmd_buf.args[6]) != 1)) {
+                    fdback_err();
+                    continue;
+                }
+                cmd_box(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), atoi(cmd_buf.args[2]),
+                    atoi(cmd_buf.args[3]), cmd_buf.args[4], cmd_buf.args[5], cmd_buf.args[6]);
+            } else {
+                fdback_err();
+                continue;
+            }
  
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {

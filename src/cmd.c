@@ -174,3 +174,36 @@ void cmd_fbox(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint1
     }
     fdback_ok();
 }
+
+void cmd_box(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *horiz, char *vert,
+        char *crnr) {
+    if (
+            (uplx >= ch_mat->sz_cols)       ||
+            (botrx >= ch_mat->sz_cols)      ||
+            (uply >= ch_mat->sz_rows)       ||
+            (botry >= ch_mat->sz_rows)      ||
+            (uplx >= botrx)                 ||
+            (uply >= botry)) {
+        fdback_err();
+        return;
+    }
+
+    // Corners
+    ch_mat->data[uply][uplx] = crnr[0];
+    ch_mat->data[uply][botrx] = crnr[0];
+    ch_mat->data[botry][uplx] = crnr[0];
+    ch_mat->data[botry][botrx] = crnr[0];
+    
+    // Horizontals
+    for (int x = uplx + 1; x < botrx; x++) {
+        ch_mat->data[uply][x] = horiz[0];
+        ch_mat->data[botry][x] = horiz[0];
+    } 
+
+    // Verticals
+    for (int y = uply + 1; y < botry; y++) {
+        ch_mat->data[y][uplx] = vert[0];
+        ch_mat->data[y][botrx] = vert[0];
+    }
+    fdback_ok();
+}

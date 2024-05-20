@@ -80,4 +80,10 @@ void cmd_hrule(ChMat *ch_mat, uint16_t ln, char *ch);
  */
 void cmd_fbox(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *ch);
 
+/*
+ * Create a box.
+ */
+void cmd_box(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *horiz, char *vert,
+    char *crnr);
+
 #endif

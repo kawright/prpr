@@ -1,0 +1,28 @@
+-- Copyright (C) 2024  Kristoffer A. Wright
+
+-- demo.ppb - prpr Demonstration Batch File
+
+-- Setup
+fdback          off
+initgraph
+dim             120 40
+
+-- Drawing 
+hrule           10 =
+putl            1 12 LEFT
+putr            118 12 RIGHT
+putc            12 CENTER
+hrule           14 +
+box             3 16 116 38 #
+box             5 18 114 36 - | +
+fbox            7 20 112 34 &
+fbox            11 24 108 30 " "
+putc            27 "Built with prpr v1.0"
+
+-- Export to PNG
+pngdraw
+pngsv           "demo.png"
+
+-- Teardown
+quitgraph
+quit
