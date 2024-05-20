@@ -15,6 +15,10 @@ extern char _binary_asset_ati_9x14_ttf_end[];
 extern char _binary_asset_ibm_iso8_ttf_start[];
 extern char _binary_asset_ibm_iso8_ttf_end[];
 
+// plex.ttf
+extern char _binary_asset_plex_ttf_start[];
+extern char _binary_asset_plex_ttf_end[];
+
 // help.txt
 extern char _binary_asset_help_txt_start[];
 extern char _binary_asset_help_txt_end[];

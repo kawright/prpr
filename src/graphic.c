@@ -52,6 +52,12 @@ void ld_fnt(GraphSt *graph_st, Fnt fnt, uint16_t pt, ErrSt *err_st) {
         data        = _binary_asset_ibm_iso8_ttf_start;
         data_sz     = _binary_asset_ibm_iso8_ttf_end - _binary_asset_ibm_iso8_ttf_start;
         break;
+
+        case FNT_PLEX:
+        data        = _binary_asset_plex_ttf_start;
+        data_sz     = _binary_asset_plex_ttf_end - _binary_asset_plex_ttf_start;
+        break;
+
         
         default:
         data        = _binary_asset_ati_9x14_ttf_start;

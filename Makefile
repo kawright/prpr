@@ -21,6 +21,7 @@ OBJS					:=	${OBJ_DIR}/err.o						\
 							${OBJ_DIR}/ibm_iso8.ttf.o				\
 							${OBJ_DIR}/help.txt.o					\
 							${OBJ_DIR}/version.txt.o				\
+							${OBJ_DIR}/plex.ttf.o
 
 LIBS					:=	-lSDL2					\
 							-lSDL2_image			\

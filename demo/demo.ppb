@@ -6,7 +6,6 @@
 fdback          off
 initgraph
 dim             120 40
-fnt             ATI 36
 lnsp            0
 bg              64 64 128
 fg              64 255 255
@@ -25,8 +24,15 @@ fbox            11 24 108 30 " "
 putc            27 "Built with prpr v1.0"
 
 -- Export to PNG
+fnt             PLEX 36
 pngdraw
-pngsv           demo/demo.png
+pngsv           demo/demo_plex.png
+fnt             ATI 36
+pngdraw
+pngsv           demo/demo_ati.png
+fnt             IBM 36
+pngdraw
+pngsv           demo/demo_ibm.png
 
 -- Teardown
 quitgraph

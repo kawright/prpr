@@ -214,6 +214,8 @@ void cmd_fnt(GraphSt *graph_st, char *fnt, uint16_t pt, ErrSt *err_st) {
         fnt_real = FNT_IBM; 
     } else if (strcmp(fnt, "ATI") == 0) {
         fnt_real = FNT_ATI;
+    } else if (strcmp(fnt, "PLEX") == 0) {
+        fnt_real = FNT_PLEX;
     } else {
         fdback_err();
         return;

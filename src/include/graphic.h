@@ -53,7 +53,8 @@ typedef struct __GRAPH_ST__ {
  */
 typedef enum __FNT__ {
     FNT_ATI,
-    FNT_IBM
+    FNT_IBM,
+    FNT_PLEX
 } Fnt;
 
 /*
