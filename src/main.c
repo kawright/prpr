@@ -271,7 +271,16 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             cmd_bg(&graph_st, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), atoi(cmd_buf.args[2]));
- 
+
+        // cp x y fname start lns
+        } else if (strcmp(cmd_buf.cmd, "cp") == 0) {
+            if (cmd_buf.arg_ct != 5) {
+                fdback_err();
+                continue;
+            }
+            cmd_cp(&ch_mat, atoi(cmd_buf.args[0]), atoi(cmd_buf.args[1]), cmd_buf.args[2], atoi(cmd_buf.args[3]),
+                atoi(cmd_buf.args[4]));
+
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {
             continue;

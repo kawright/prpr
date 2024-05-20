@@ -240,3 +240,39 @@ void cmd_fg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b) {
     graph_st->fg_b = b;
     fdback_ok();
 }
+
+void cmd_cp(ChMat *ch_mat, uint16_t x, uint16_t y, char *fname, uint16_t start, uint16_t lns) {
+    if (
+            (x >= ch_mat->sz_cols) ||
+            (y >= ch_mat->sz_rows)) {
+        fdback_err();
+        return;
+    }
+    FILE *fp = fopen(fname, "r");
+    if (fp == NULL) {
+        fdback_err();
+        return;
+    }
+    char ln_buf[512];
+    for (int i = 0; i < start; i++) {
+        if (!(fgets(ln_buf, 511, fp))) {
+            fclose(fp);
+            fdback_err();
+            return;
+        };
+    }
+    for (int j = 0; j < lns; j++) {
+        if (y + j >= ch_mat->sz_rows) break;
+        if (!(fgets(ln_buf, 511, fp))) {
+            fclose(fp);
+            fdback_ok();
+            return;
+        }
+        for (int i = 0; i < strlen(ln_buf) - 1; i++) {
+            if (x + i >= ch_mat->sz_cols) break;
+            ch_mat->data[y + j][x + i] = ln_buf[i]; 
+        }
+    } 
+    fclose(fp);
+    fdback_ok();
+}
