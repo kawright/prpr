@@ -7,13 +7,12 @@ fdback          off
 initgraph
 dim             120 40
 fnt             ATI 36
-bg              87 52 117
-fg              105 240 233
+lnsp            0
+bg              64 64 128
+fg              64 255 255
 
 -- Drawing 
-
 cp              24 1 demo/banner.txt 0 9
-
 hrule           10 =
 putl            1 12 LEFT
 putr            118 12 RIGHT
@@ -27,7 +26,7 @@ putc            27 "Built with prpr v1.0"
 
 -- Export to PNG
 pngdraw
-pngsv           "demo.png"
+pngsv           demo/demo.png
 
 -- Teardown
 quitgraph

@@ -106,4 +106,9 @@ void cmd_fg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b);
  */
 void cmd_cp(ChMat *ch_mat, uint16_t x, uint16_t y, char *fname, uint16_t start, uint16_t lns);
 
+/*
+ * Set the line spacing.
+ */
+void cmd_lnsp(GraphSt *graph_st, uint16_t lnsp);
+
 #endif

@@ -276,3 +276,8 @@ void cmd_cp(ChMat *ch_mat, uint16_t x, uint16_t y, char *fname, uint16_t start, 
     fclose(fp);
     fdback_ok();
 }
+
+void cmd_lnsp(GraphSt *graph_st, uint16_t lnsp) {
+    graph_st->ln_sp = lnsp;
+    fdback_ok();
+}
