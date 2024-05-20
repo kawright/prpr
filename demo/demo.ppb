@@ -6,6 +6,7 @@
 fdback          off
 initgraph
 dim             120 40
+fnt             ATI 18
 
 -- Drawing 
 hrule           10 =

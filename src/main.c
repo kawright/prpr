@@ -247,6 +247,14 @@ int main(int argc, char *argv[]) {
                 fdback_err();
                 continue;
             }
+
+        // fnt name pt
+        } else if (strcmp(cmd_buf.cmd, "fnt") == 0) {
+            if (cmd_buf.arg_ct != 2) {
+                fdback_err();
+                continue;
+            }
+            cmd_fnt(&graph_st, cmd_buf.args[0], atoi(cmd_buf.args[1]), &err_st);
  
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {

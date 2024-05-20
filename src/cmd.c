@@ -207,3 +207,22 @@ void cmd_box(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16
     }
     fdback_ok();
 }
+
+void cmd_fnt(GraphSt *graph_st, char *fnt, uint16_t pt, ErrSt *err_st) {
+    Fnt fnt_real;
+    if (strcmp(fnt, "IBM") == 0) {
+        fnt_real = FNT_IBM; 
+    } else if (strcmp(fnt, "ATI") == 0) {
+        fnt_real = FNT_ATI;
+    } else {
+        fdback_err();
+        return;
+    }
+    ld_fnt(graph_st, fnt_real, pt, err_st);
+    if (is_err_thrown(err_st)) {
+        fdback_err();
+        init_err_st(err_st);
+        return;
+    }
+    fdback_ok();
+}

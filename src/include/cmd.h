@@ -86,4 +86,9 @@ void cmd_fbox(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint1
 void cmd_box(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *horiz, char *vert,
     char *crnr);
 
+/*
+ * Load a new font.
+ */
+void cmd_fnt(GraphSt *graph_st, char *fnt, uint16_t pt, ErrSt *err_st);
+
 #endif
