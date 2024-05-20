@@ -56,17 +56,17 @@ void cmd_pngdraw(GraphSt *graph_st, ChMat *ch_mat, ErrSt *err_st);
 void cmd_pngsv(GraphSt *graph_st, char *fname, ErrSt *err_st); 
 
 /*
- * Put a left-aligned string onto a ChMat. Throws ERR_RANGE if the string goes out-of-bounds.
+ * Put a left-aligned string onto a ChMat.
  */
 void cmd_putl(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
 
 /*
- * Put a right-aligned string onto a ChMat. Throws ERR_RANGE if the string goes out-of-bounds.
+ * Put a right-aligned string onto a ChMat.
  */
 void cmd_putr(ChMat *ch_mat, uint16_t x, uint16_t y, char *str);
 
 /*
- * Put a centered string onto a ChMat. Throws ERR_RANGE if the string goes out-of-bounds.
+ * Put a centered string onto a ChMat.
  */
 void cmd_putc(ChMat *ch_mat, uint16_t ln, char *str);
 
@@ -74,5 +74,10 @@ void cmd_putc(ChMat *ch_mat, uint16_t ln, char *str);
  * Create a horizontal rule.
  */
 void cmd_hrule(ChMat *ch_mat, uint16_t ln, char *ch);
+
+/*
+ * Create a filled box.
+ */
+void cmd_fbox(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *ch);
 
 #endif

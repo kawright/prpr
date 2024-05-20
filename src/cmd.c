@@ -155,3 +155,22 @@ void cmd_hrule(ChMat *ch_mat, uint16_t ln, char *ch) {
     }
     fdback_ok();
 }
+
+void cmd_fbox(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16_t botry, char *ch) {
+    if (
+            (uplx >= ch_mat->sz_cols)       ||
+            (botrx >= ch_mat->sz_cols)      ||
+            (uply >= ch_mat->sz_rows)       ||
+            (botry >= ch_mat->sz_rows)      ||
+            (uplx >= botrx)                 ||
+            (uply >= botry)) {
+        fdback_err();
+        return;
+    }
+    for (int y = uply; y <= botry; y++) {
+        for (int x = uplx; x <= botrx; x++) {
+            ch_mat->data[y][x] = ch[0];
+        }
+    }
+    fdback_ok();
+}

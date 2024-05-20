@@ -5,12 +5,13 @@
 -- Setup
 fdback          off
 initgraph
-dim             40 5
+dim             40 15
 
 -- Drawing
+fbox            4 4 34 10 # 
 hrule           1 -
-putc            2 "Hello, world!"
-hrule           3 +
+putc            7 "Hello, world!"
+hrule           13 +
 
 -- Export to PNG
 pngdraw
