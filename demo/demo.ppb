@@ -6,9 +6,19 @@
 fdback          off
 initgraph
 dim             120 40
-fnt             ATI 18
+fnt             ATI 24
+bg              0 0 0
+fg              0 255 0
 
 -- Drawing 
+
+putc            1 "                      ___                "
+putc            2 "  _ __ _ _ _ __ _ _  |   \ ___ _ __  ___ "
+putc            3 " | '_ \ '_| '_ \ '_| | |) / -_) '  \/ _ \"
+putc            4 " | .__/_| | .__/_|   |___/\___|_|_|_\___/"
+putc            5 " |_|      |_|                            "
+
+
 hrule           10 =
 putl            1 12 LEFT
 putr            118 12 RIGHT

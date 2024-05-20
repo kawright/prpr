@@ -91,4 +91,14 @@ void cmd_box(ChMat *ch_mat, uint16_t uplx, uint16_t uply, uint16_t botrx, uint16
  */
 void cmd_fnt(GraphSt *graph_st, char *fnt, uint16_t pt, ErrSt *err_st);
 
+/*
+ * Change the background color.
+ */
+void cmd_bg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b);
+
+/*
+ * Change the foreground color.
+ */
+void cmd_fg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b);
+
 #endif

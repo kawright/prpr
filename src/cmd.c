@@ -226,3 +226,17 @@ void cmd_fnt(GraphSt *graph_st, char *fnt, uint16_t pt, ErrSt *err_st) {
     }
     fdback_ok();
 }
+
+void cmd_bg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b) {
+    graph_st->bg_r = r;
+    graph_st->bg_g = g;
+    graph_st->bg_b = b;
+    fdback_ok();
+}
+
+void cmd_fg(GraphSt *graph_st, uint8_t r, uint8_t g, uint8_t b) {
+    graph_st->fg_r = r;
+    graph_st->fg_g = g;
+    graph_st->fg_b = b;
+    fdback_ok();
+}
