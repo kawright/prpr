@@ -6,7 +6,7 @@
 .SH NAME
 prpr \- The Printing Press Typesetter
 .SH SYNOPSIS
-prpr [-hv] [FNAME]
+prpr [-hv] [BATFILE]
 .SH DESCRIPTION
 prpr is a simple monospace typesetter primarily used for creating character matrices and exporting them to TXT and PNG 
 formats.
@@ -15,7 +15,7 @@ formats.
 show the help text
 .IP -v
 show the version number
-.IP FNAME
+.IP BATFILE
 process a batch file with the given filename
 .SH COMMANDS
 .IP "bg r g b"

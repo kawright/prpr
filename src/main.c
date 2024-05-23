@@ -38,6 +38,15 @@ int main(int argc, char *argv[]) {
     parse_prog_opts(&prog_opts, argc, argv, &err_st);
     if (is_err_thrown(&err_st)) panic(&err_st);
     
+    if (prog_opts.show_ver) {
+        printf("%s\n", _binary_asset_version_txt_start);
+        return 0;
+    }
+    if (prog_opts.show_help) {
+        printf("%s\n", _binary_asset_help_txt_start);
+        return 0;
+    }
+    
     ///// INPUT LOOP /////
 
     FILE *fp;
