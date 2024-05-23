@@ -1,0 +1,9 @@
+# Copyright (C) 2024  Kristoffer A. Wright
+
+# Gitignore
+
+# VIM
+.*.swp
+
+# Build Artifacts
+.build
