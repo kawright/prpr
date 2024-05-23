@@ -18,6 +18,8 @@ show the version number
 .IP BATFILE
 process a batch file with the given filename
 .SH COMMANDS
+.IP "#"
+comment; all arguments are ignored
 .IP "bg r g b"
 change the background color
 .IP "box topleftcol topleftrow botrightcol botrightrow horiz [vert corner]"
