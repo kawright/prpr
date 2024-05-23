@@ -111,4 +111,9 @@ void cmd_cp(ChMat *ch_mat, uint16_t x, uint16_t y, char *fname, uint16_t start, 
  */
 void cmd_lnsp(GraphSt *graph_st, uint16_t lnsp);
 
+/*
+ * Echo a message to the console.
+ */
+void cmd_echo(char *msg);
+
 #endif

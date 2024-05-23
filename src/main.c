@@ -289,6 +289,14 @@ int main(int argc, char *argv[]) {
             }
             cmd_lnsp(&graph_st, atoi(cmd_buf.args[0]));
 
+        // echo cmd
+        } else if (strcmp(cmd_buf.cmd, "echo") == 0) {
+            if (cmd_buf.arg_ct != 1) {
+                fdback_err();
+                continue;
+            }
+            cmd_echo(cmd_buf.args[0]);
+
         // -- [comment]
         } else if (strcmp(cmd_buf.cmd, "--") == 0) {
             continue;

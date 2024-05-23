@@ -283,3 +283,8 @@ void cmd_lnsp(GraphSt *graph_st, uint16_t lnsp) {
     graph_st->ln_sp = lnsp;
     fdback_ok();
 }
+
+void cmd_echo(char *msg) {
+    printf("%s\n", msg);
+    fdback_ok();
+}

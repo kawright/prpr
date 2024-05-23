@@ -4,6 +4,7 @@
 
 -- Setup
 fdback          off
+echo            "Performing setup"
 initgraph
 dim             120 40
 lnsp            0
@@ -11,6 +12,7 @@ bg              64 64 128
 fg              64 255 255
 
 -- Drawing 
+echo            "Drawing elements"
 cp              24 1 demo/banner.txt 0 9
 hrule           10 =
 putl            1 12 LEFT
@@ -24,16 +26,22 @@ fbox            11 24 108 30 " "
 putc            27 "Built with prpr v1.0"
 
 -- Export to PNG
+echo            "Exporting demo_plex.png"
 fnt             PLEX 36
 pngdraw
 pngsv           demo/demo_plex.png
+echo            "Exporting demo_ati.png"
 fnt             ATI 36
 pngdraw
 pngsv           demo/demo_ati.png
+echo            "Exporting demo_ibm.png"
 fnt             IBM 36
 pngdraw
 pngsv           demo/demo_ibm.png
 
 -- Teardown
+echo "Performing teardown"
 quitgraph
+
+echo Done!
 quit
