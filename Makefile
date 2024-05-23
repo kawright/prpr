@@ -7,6 +7,9 @@ OBJ_DIR					:=	${BUILD_DIR}/obj
 BIN_DIR					:=	${BUILD_DIR}/bin
 SRC_DIR					:=	src
 ASSET_DIR				:=	asset
+INSTALL_BIN_DIR			:= /usr/local/bin
+INSTALL_MAN_DIR			:= /usr/local/share/man/man1
+
 
 OBJS					:=	${OBJ_DIR}/err.o						\
 							${OBJ_DIR}/lnbuf.o						\
@@ -52,8 +55,23 @@ $(OBJ_DIR)/%.o: $(ASSET_DIR)/%
 all: ${BIN_DIR}/prpr
 	@echo Done!
 
-.PHONE: clean
+.PHONY: clean
 clean:
 	@echo Cleaning build artifacts
 	@rm -rf ${BUILD_DIR}
 	@echo Done!
+
+.PHONY: install
+install: ${BIN_DIR}/prpr man.groff
+	@echo Installing prpr
+	@cp ${BIN_DIR}/prpr ${INSTALL_BIN_DIR}/prpr
+	@cp man.groff ${INSTALL_MAN_DIR}/prpr.1
+	@gzip ${INSTALL_MAN_DIR}/prpr.1
+	@echo Done!
+
+.PHONY: uninstall
+uninstall:
+	@echo Uninstalling prpr
+	@rm -f ${INSTALL_BIN_DIR}/prpr
+	@rm -f ${INSTALL_MAN_DIR}/prpr
+	@echo Done! 

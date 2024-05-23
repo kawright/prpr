@@ -1,0 +1,88 @@
+.\" Copyright (C) 2024  Kristoffer A. Wright
+
+.\" man.groff - Manual Page
+
+.TH man 1 "22 May 2024" "1.0" "prpr man page"
+.SH NAME
+prpr \- The Printing Press Typesetter
+.SH SYNOPSIS
+prpr [-hv] [FNAME]
+.SH DESCRIPTION
+prpr is a simple monospace typesetter primarily used for creating character matrices and exporting them to TXT and PNG 
+formats.
+.SH OPTIONS
+.IP -h
+show the help text
+.IP -v
+show the version number
+.IP FNAME
+process a batch file with the given filename
+.SH COMMANDS
+.IP "bg r g b"
+change the background color
+.IP "box topleftcol topleftrow botrightcol botrightrow horiz [vert corner]"
+draw a box; horiz, vert, and corner must be exactly 1 character wide; when vert and corner are omitted, only the
+horiz character is used
+.IP "cp col row fname start lns"
+cut lines from a text file and paste them onto the matrix  
+.IP "dim cols rows"
+set the matrix dimensions; cols must not exceed 512 and rows must not exceed 256
+.IP "echo msg"
+echo a message to STDOUT
+.IP "fbox upperleftcol upperleftrow bottomrightcol bottomrightrow ch"
+draw a filled box; errors if the box goes out-of-bounds
+.IP "fdback on|off"
+toggle command feedback
+.IP "fg r g b"
+change the foreground color
+.IP "fill ch"
+fill the matrix with a single character; ch must be exactly 1 character wide
+.IP "fnt name pt"
+load font at a given point size 
+.IP "hrule row ch"
+draw a horizontal rule; ch must be exactly 1 character wide
+.IP initgraph
+initialize the graphics sub-system
+.IP "lnsp px"
+set line spacing in pixels
+.IP pngdraw
+draw the matrix to the graphics buffer
+.IP "pngsv fname"
+write the graphics buffer the a .png file
+.IP print
+print the matrix to STDOUT
+.IP "putc row str"
+write a centered string to the matrix; errors if the string goes out-of-bounds
+.IP "putl col row str"
+write a left-aligned string to the matrix; errors if the string goes out-of-bounds
+.IP "putr col row str"
+write a right-aligned string to the matrix; errors if the string goes out-of-bounds
+.IP quit
+quit the program and return to the shell
+.IP quitgraph
+quit the graphics sub-system
+.IP "txt fname"
+dump the matrix to a text file
+.SH ERROR/EXIT CODES
+.IP "0 - OK"
+no error has occurred
+.IP "1 - GENERAL"
+unhandled runtime error
+.IP "2 - ARGV"
+malformed argument vector
+.IP "3 - MEM"
+out-of-memory
+.IP "4 - IO"
+file open/read/write fail
+.IP "5 - SYNTAX"
+command parse error
+.IP "6 - RANGE"
+out of range data
+.IP "7 - EXTERN"
+error reported by external sub-system
+.SH AUTHOR
+Written by Kristoffer A. Wright
+.SH REPORTING BUGS
+Please report all bugs to <kris.al.wright@gmail.com>
+.SH COPYRIGHT
+Copyright (C) 2024  Kristoffer A. Wright 
